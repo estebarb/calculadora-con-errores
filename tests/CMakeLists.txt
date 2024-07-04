@@ -1,15 +1,19 @@
 # Agreguen acá todos los archivos que necesiten para compilar su tarea.
 set(TESTFILES
 # Si agregan más archivos de pruebas en test/ entonces deben agregarlos acá
-    test_fibonacci.cpp
-# Pruebas de ejemplo (también en test/):
-
+    calculadora_test.cc
+    shunting_yard_test.cc
+    tokenizer_test.cc
 # Si agregan más archivos .cc en src/ entonces deben agregarlos acá. De lo contrario,
 # no serán compilados y no podrán ser usados en las pruebas.
 # El nombre de la variable empieza con el nombre del target en src/CMakeLists.txt
 # seguido de _SOURCE_FILES
 # TODO: Si cambian el nombre del target en src/CMakeLists.txt, deben cambiarlo acá también.
-    ${cpp_template_SOURCE_DIR}/src/fibonacci.cpp
+    ${calculadora_SOURCE_DIR}/calculadora.cc
+    ${calculadora_SOURCE_DIR}/postfijo.cc
+    ${calculadora_SOURCE_DIR}/shunting_yard.cc
+    ${calculadora_SOURCE_DIR}/token.cc
+    ${calculadora_SOURCE_DIR}/tokenizer.cc
 )
 
 # Usualmente NO DEBEN MODIFICAR NADA DE AQUÍ EN ADELANTE.
@@ -53,7 +57,7 @@ add_executable(${TEST_MAIN} ${TESTFILES})
 
 target_include_directories(${TEST_MAIN}
 # TODO: Cambien cpp_template por el nombre de su proyecto en /CMakelists.txt
-    PUBLIC "${cpp_template_SOURCE_DIR}/include")
+    PUBLIC "${calculadora_SOURCE_DIR}/../include")
 
 # Finalmente, enlazamos con la librería de Google Test
 target_link_libraries(
